@@ -1,0 +1,180 @@
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("fonts/manrope-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("fonts/manrope-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("fonts/manrope-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light;
+  --bg: #f5f2e9;
+  --surface: #fffdf7;
+  --surface-raised: #ffffff;
+  --ink: #19170f;
+  --muted: #6b675c;
+  --line: #dcd6c6;
+  --line-strong: #bab3a1;
+  --primary: #f4c430;
+  --primary-strong: #dfad13;
+  --accent: #765f0b;
+  --accent-soft: #fff4bd;
+  --success: #247a58;
+  --danger: #b84235;
+  --shadow: 0 14px 34px rgba(54, 45, 15, 0.09);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: min(390px, 100vw);
+  min-height: 430px;
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 14px/1.55 "Manrope", "Avenir Next", Avenir, ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+main { padding: 22px; }
+.hidden { display: none !important; }
+
+.topbar, .status-row, .tab-row, .history-row, .extension-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar { align-items: flex-start; margin-bottom: 20px; }
+.topbar-copy { flex: 1; }
+.topbar > .top-actions { display: flex; flex: 0 0 auto; gap: 10px; }
+.extension-brand { margin-bottom: 18px; font-size: 13px; font-weight: 800; letter-spacing: -.035em; }
+.extension-brand img { border-radius: 7px; }
+.extension-brand.compact { margin-bottom: 12px; }
+.settings-brand { margin-bottom: 22px; }
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+h1, h2, h3 { letter-spacing: -.045em; line-height: 1.12; }
+h1 { margin: 0; font-size: 25px; }
+h2 { margin: 0 0 10px; font-size: 17px; }
+p { margin: 0; }
+.muted, .endpoint { color: var(--muted); }
+.endpoint { margin-top: 16px; font-size: 11px; text-align: center; }
+.endpoint a, .settings-note a { color: var(--accent); font-weight: 700; }
+
+.panel, .device {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.loading-panel { display: grid; gap: 8px; }
+
+form { display: grid; gap: 12px; margin-top: 18px; }
+label { display: grid; gap: 5px; color: var(--muted); font-size: 12px; font-weight: 650; }
+input {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 11px;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  background: var(--surface-raised);
+  color: var(--ink);
+  font: inherit;
+}
+
+input:focus { outline: 3px solid rgba(223, 173, 19, .4); outline-offset: 1px; border-color: var(--accent); }
+
+button { cursor: pointer; font: inherit; }
+.primary, .secondary {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 7px;
+  font-weight: 800;
+}
+.primary { border: 1px solid var(--ink); background: var(--primary); color: var(--ink); }
+.primary:hover { background: var(--primary-strong); }
+.secondary { border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); }
+.secondary:hover { border-color: var(--ink); }
+.link { padding: 2px; border: 0; background: transparent; color: var(--accent); font-weight: 700; }
+.link:hover { color: var(--ink); text-decoration: underline; text-underline-offset: .18em; }
+.push { margin-left: auto; }
+
+.error { margin: 10px 0; color: var(--danger); font-size: 12px; }
+.status-row { margin-bottom: 20px; color: var(--muted); font-size: 12px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary-strong); box-shadow: 0 0 0 3px var(--accent-soft); }
+.dot.ok { background: var(--success); box-shadow: 0 0 0 3px rgba(36, 122, 88, .12); }
+
+.device-name-form { gap: 6px; margin-top: 0; }
+.device-name-controls { display: flex; gap: 8px; }
+.device-name-controls input { min-width: 0; }
+.device-name-controls .secondary { flex: 0 0 auto; width: auto; }
+.device-name-form .settings-status { min-height: 18px; }
+#app-view > section + section { margin-top: 24px; }
+.stack { display: grid; gap: 10px; }
+.device h3 { margin: 0; font-size: 14px; }
+.device-meta { margin: 2px 0 11px; color: var(--muted); font-size: 11px; }
+.tab-list { display: grid; gap: 7px; }
+.tab-row, .history-row { align-items: flex-start; min-width: 0; }
+.favicon { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); font: 800 11px/22px "Manrope", sans-serif; text-align: center; }
+.tab-link { min-width: 0; color: var(--ink); text-decoration: none; }
+.tab-link:hover { color: var(--accent); }
+.title { overflow: hidden; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.url { overflow: hidden; color: var(--muted); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.history-row { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.history-row:last-child { border-bottom: 0; }
+.history-copy { min-width: 0; flex: 1; }
+.history-time { color: var(--muted); font-size: 10px; }
+#more { margin-top: 12px; }
+
+.settings-page { width: min(520px, 100vw); }
+.settings-page main { padding: 24px; }
+.settings-card { display: grid; gap: 12px; }
+.settings-card h1 { margin-bottom: 4px; }
+.settings-card form { margin-top: 8px; }
+.settings-actions { display: grid; gap: 8px; }
+.settings-note { color: var(--muted); font-size: 12px; }
+.settings-status { min-height: 20px; color: var(--accent); font-size: 12px; }
+.back-link { display: inline-block; margin-bottom: 20px; color: var(--accent); font-weight: 700; text-decoration: none; }
+.back-link:hover { color: var(--ink); text-decoration: underline; text-underline-offset: .18em; }
+
+:focus-visible { outline: 3px solid rgba(223, 173, 19, .45); outline-offset: 2px; }
+
+@media (min-width: 600px) {
+  body { width: 100%; min-height: 100vh; }
+  main { max-width: 980px; margin: 0 auto; padding: 42px clamp(24px, 5vw, 72px); }
+  .topbar { margin-bottom: 32px; }
+  #loading-view, #login-view { max-width: 620px; }
+  #app-view { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+  #app-view > .status-row, #app-view > .error { grid-column: 1 / -1; }
+  #app-view > .current-device { grid-column: 1 / -1; }
+  #app-view > section + section { margin-top: 0; }
+}

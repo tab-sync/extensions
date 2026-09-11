@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4c430">
+  <title>Tab Sync</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header class="topbar">
+      <div class="topbar-copy">
+        <div class="extension-brand"><img src="icons/icon-32.png" width="28" height="28" alt=""><span>Tab Sync</span></div>
+        <p class="eyebrow">TAB SYNC</p>
+        <h1>Browsers, together.</h1>
+      </div>
+      <div class="top-actions">
+        <a class="link" href="settings.html">Settings</a>
+        <button id="logout" class="link hidden" type="button">Sign out</button>
+      </div>
+    </header>
+
+    <section id="loading-view" class="panel loading-panel" aria-live="polite">
+      <div class="extension-brand compact"><img src="icons/icon-24.png" width="24" height="24" alt=""><span>Tab Sync</span></div>
+      <h2>Loading your session…</h2>
+      <p class="muted">Checking your Tab Sync account.</p>
+    </section>
+
+    <section id="login-view" class="panel hidden">
+      <h2>Sign in</h2>
+      <p class="muted">Connect this browser installation to your Tab Sync account.</p>
+      <form id="login-form">
+        <label>Username<input id="username" name="username" autocomplete="username" minlength="3" maxlength="32" required></label>
+        <label>Password<input id="password" name="password" type="password" autocomplete="current-password" maxlength="128" required></label>
+        <p id="auth-error" class="error hidden" role="alert"></p>
+        <button id="login" class="primary" type="submit">Sign in</button>
+        <button id="register" class="secondary" type="button">Create account</button>
+      </form>
+      <p class="endpoint">Server · <span id="endpoint-value">tabsync.nkson.com</span> · <a href="https://tabsync.nkson.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a></p>
+    </section>
+
+    <section id="app-view" class="hidden">
+      <div class="status-row">
+        <span id="sync-dot" class="dot"></span>
+        <span id="sync-status">Loading…</span>
+        <button id="refresh" class="link push" type="button">Refresh</button>
+      </div>
+      <p id="app-error" class="error hidden" role="alert"></p>
+
+      <section class="current-device panel" aria-labelledby="current-device-title">
+        <h2 id="current-device-title">Current device</h2>
+        <form id="device-name-form" class="device-name-form">
+          <label for="device-name">Device name</label>
+          <div class="device-name-controls">
+            <input id="device-name" name="device-name" type="text" autocomplete="off" maxlength="80" required placeholder="e.g. Work iPhone">
+            <button id="save-device-name" class="secondary" type="submit">Save</button>
+          </div>
+          <p id="device-name-status" class="settings-status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section>
+        <h2>Devices</h2>
+        <div id="devices" class="stack"></div>
+      </section>
+
+      <section>
+        <h2>Recent history</h2>
+        <div id="history" class="stack"></div>
+        <button id="more" class="secondary hidden" type="button">Load more</button>
+      </section>
+    </section>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

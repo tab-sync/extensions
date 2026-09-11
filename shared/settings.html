@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4c430">
+  <title>Server settings · Tab Sync</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body class="settings-page">
+  <main>
+    <div class="extension-brand settings-brand"><img src="icons/icon-32.png" width="28" height="28" alt=""><span>Tab Sync</span></div>
+    <a class="back-link" href="popup.html">← Back to Tab Sync</a>
+    <section class="panel settings-card" aria-labelledby="settings-title">
+      <p class="eyebrow">SETTINGS</p>
+      <h1 id="settings-title">Server</h1>
+      <p class="muted">Choose the Tab Sync server this extension connects to.</p>
+
+      <form id="settings-form">
+        <label>Server URL<input id="server-url" name="server-url" type="url" inputmode="url" autocomplete="url" autocapitalize="none" spellcheck="false" required placeholder="https://tabs.example.com"></label>
+        <p class="settings-note">Use HTTPS for a remote server. Changing servers signs you out of this extension.</p>
+        <div class="settings-actions">
+          <button class="primary" type="submit">Save</button>
+          <button id="use-local-server" class="secondary" type="button">Use localhost</button>
+        </div>
+      </form>
+      <p id="settings-status" class="settings-status" role="status" aria-live="polite"></p>
+      <p class="settings-note"><a href="https://tabsync.nkson.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></p>
+    </section>
+  </main>
+  <script src="settings.js"></script>
+</body>
+</html>
